@@ -2,7 +2,7 @@
  * File Name : Mat.cpp
  * Purpose : Learning to use Mat
  * Creation Date : Wed 25 Jan 2017 12:01:53 AM CST
- * Last Modified : Wed 25 Jan 2017 03:01:00 PM CST
+ * Last Modified : Wed 25 Jan 2017 09:29:46 PM CST
  * Created By : SL Chung
 **************************************************************/
 #include<iostream>
@@ -27,22 +27,37 @@ int main(int argc, char** argv)
 
 
     //reassign the memory size and type
-    img1.create(30, 40, CV_8S);
+    img1.create(3, 4, CV_8S);
     cout << "img1 = " << endl << img1 << endl << endl; 
-   
+    //delete the matrix
+    img1.release();
+    cout << "img1 = " << endl << img1 << endl << endl; 
+    //set the matrix all ones
+    img1 = img1.ones(5, 3, CV_8U);
+    cout << "img1 = " << endl << img1 << endl << endl; 
+    //set the matrix all zeros
+    img1 = img1.zeros(3, 7, CV_8S);
+    cout << "img1 = " << endl << img1 << endl << endl; 
    
 
     //Following content is from the official website 
     /*************************************************************************************************/
     Mat A, C;                                 // creates just the header parts
-    A = imread(argv[1], CV_LOAD_IMAGE_COLOR); // here we'll know the method used (allocate matrix)
+    A = imread(argv[1], IMREAD_COLOR);        // here we'll know the method used (allocate matrix)
 
     Mat B(A);                                 // 1. Use the copy constructor
+                                              // the copy operators will only copy the headers 
+                                              // and the pointer to the large matrix, not the data itself.
 
     C = A;                                    // 2. Assignment operator
     
     //making a modification using any of them will affect all the other ones as well.
-    //works like pointer
+    //which works like pointer
+
+    //However, if need to really copy the hole data can use following two ways
+    Mat D = A.clone(); //1. some = target.clone()
+    Mat F;             //2. target.copyTo( some  )
+    A.copyTo(F);
     /*************************************************************************************************/
 
     return 0;
