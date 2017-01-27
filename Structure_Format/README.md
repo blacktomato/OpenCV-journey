@@ -85,7 +85,25 @@ Besides, the Mat objects can be showed by `cout`.
 
     The method above really copy the whole data.
 
-<h4 id = "basic">basic\_structure.cpp</h4>
+<h4 id = "basic">basic_structure.cpp</h4>
+
+There several different basic datatype in the OpenCV.
+
+*   Point
+
+    Point is a datatype consisting of numbers to represent a point in coordinate, and there are different types of Point.
+
+    * Point: input 2 **integer**.
+    * Point2f: input 2 **float**.
+    * Point3i: input 3 **integer**.
+    * Point3f: input 3 **float**.
+    * Point3d: input 3 **double**.
+
+    `cout` can be used to show the information of Point, and there are data member `x`, `y`, and `z` able to be changed. (ex: point.x = 12)
+
+* Size
+* Rect
+* RotatedRect
 
 
 
