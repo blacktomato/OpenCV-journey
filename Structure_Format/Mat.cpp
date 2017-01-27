@@ -2,7 +2,7 @@
  * File Name : Mat.cpp
  * Purpose : Learning to use Mat
  * Creation Date : Wed 25 Jan 2017 12:01:53 AM CST
- * Last Modified : Wed 25 Jan 2017 09:29:46 PM CST
+ * Last Modified : Fri 27 Jan 2017 10:53:02 PM CST
  * Created By : SL Chung
 **************************************************************/
 #include<iostream>
@@ -38,6 +38,9 @@ int main(int argc, char** argv)
     //set the matrix all zeros
     img1 = img1.zeros(3, 7, CV_8S);
     cout << "img1 = " << endl << img1 << endl << endl; 
+    //set the matrix identity
+    img1 = img1.eye(5, 5, CV_8S);
+    cout << "img1 = " << endl << img1 << endl << endl; 
    
 
     //Following content is from the official website 
@@ -54,7 +57,7 @@ int main(int argc, char** argv)
     //making a modification using any of them will affect all the other ones as well.
     //which works like pointer
 
-    //However, if need to really copy the hole data can use following two ways
+    //However, if need to really copy the whole of the data, we can use following two ways
     Mat D = A.clone(); //1. some = target.clone()
     Mat F;             //2. target.copyTo( some  )
     A.copyTo(F);
