@@ -4,6 +4,12 @@
 * [Makefile](#makefile)
 * [Mat.cpp](#mat)
 * [basic\_structure.cpp](#basic)
+    * [Point](#point)
+    * [Size](#size)
+    * [Rect](#rect)
+    * [rRect](#rrect)
+    * [Scalar](#scalar)
+
 
 * * *
 
@@ -48,7 +54,7 @@ Besides, the Mat objects can be showed by `cout`.
 
         Mat img3(10, 20, CV_8UC3, Scalar(200,100,0));
     
-    In the `CV_8UC3`, **C3** means the number of channel is 3, which represents GBR filled by 200, 100, 0 respectively. 
+    In the `CV_8UC3`, **C3** means the number of channel is 3, which represents the three channels, **BGR**, filled by 200, 100, 0 respectively. 
 
 *   Using `create(int, int, int Scalar)` to reassign the memory size and type of a Mat,
 
@@ -89,7 +95,7 @@ Besides, the Mat objects can be showed by `cout`.
 
 There several different basic datatype in the OpenCV.
 
-*   Point
+*   <p id = "point" >Point</p>
 
     Point is a datatype consisting of numbers to represent a point in coordinate, and there are different types of Point.
 
@@ -99,13 +105,52 @@ There several different basic datatype in the OpenCV.
     * Point3f: input 3 **float**.
     * Point3d: input 3 **double**.
 
-    `cout` can be used to show the information of Point, and there are data member `x`, `y`, and `z` able to be changed. (ex: point.x = 12)
+    `cout` can be used to show the information of Point, and there are data member `x`, `y`, and `z` able to be changed. ( ex: point.x = 12; )
 
-* Size
-* Rect
-* RotatedRect
+*   <p id = "size" >Size</p>
 
+    Size is a datatype consisting of two integers to represent size of a matrix or a picture, and there is a member function, `area()`, returning the product of two integer.
 
+        Size size1;
+        size1.width = 150;
+        size1.height = 100;
+        int myArea = size1.area(); // 15000
+    
+*   <p id = "rect" >Rect</p>
 
+    In Rect, it takes first two integer to specify the position of the **up-left** corner of the Rect,
+    and the rest two integer shows the size of the rect.
+    
+        //Rect(int x, int y, int width, int height)
+        Rect rect1;
+        rect1.x = 20;    // the coordinate of the up-left corner
+        rect1.y = 30;
+        rect1.width = 150;
+        rect1.height = 100;
+
+    and there is also a member function, `area()`, returning the area of the Rect.
+
+*   <p id = "rrect" >rRect ( RotatedRect )</p>
+
+    In rRect, it takes a `Point2f` to be a **center**, a `Size2f` to specify **size**, and a `float` to be the spin **angle**.
+    The `Point2f` array, `vertices`,  shows the position of the four corners of the rRect.
+
+        RotatedRect rRect1; 
+        rRect1.center = Point2f(150,150);
+        rRect1.size = Size2f(100,50);
+        rRect1.angle = 30.0;
+        Point2f vertices[4];
+        rRect1.points(vertices);
+
+*   <p id = "scalar" >Scalar</p>
+
+    Scalar is usually used to represent colors and the value of elements in matrices.
+    Besides, the order of the color is **BGR**.
+    
+        //Scalar(a, b, c)
+        //       B  G  R
+        //Scalar(a)
+        //       Grey-Scale
+        Scalar color(12, 3, 50);
 
 
