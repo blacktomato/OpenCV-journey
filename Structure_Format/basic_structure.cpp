@@ -2,7 +2,7 @@
  * File Name : basic_structure.cpp
  * Purpose : Usage of Point, Size, Rect, and so on 
  * Creation Date : Wed 25 Jan 2017 09:28:45 PM CST
- * Last Modified : Fri 27 Jan 2017 05:07:28 PM CST
+ * Last Modified : Sat 28 Jan 2017 03:17:09 PM CST
  * Created By : SL Chung
 **************************************************************/
 #include<iostream>
