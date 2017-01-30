@@ -9,7 +9,6 @@
     * [Rect](#rect)
     * [rRect](#rrect)
     * [Scalar](#scalar)
-* [IO.cpp](#io)
 
 
 * * *
@@ -154,13 +153,3 @@ There several different basic datatype in the OpenCV.
         //       Grey-Scale
         Scalar color(12, 3, 50);
 
-<h4 id = "io">IO.cpp</h4>
-
-Some basic operation of reading in and showing images. `namedWindow()` sets the information of a window, and `imshow()` shows the image.
-
-    //WINDOW_NORMAL   user can make the window manually-resizable
-    //WINDOW_AUTOSIZE the size of the window will be same as the image
-
-    string title = "Resizable";
-    namedWindow(title, CV_WINDOW_NORMAL );
-    imshow(title, img1);
