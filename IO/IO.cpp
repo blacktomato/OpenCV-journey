@@ -2,7 +2,7 @@
  * File Name : IO.cpp
  * Purpose : IO in the OpenCV
  * Creation Date : Sun 29 Jan 2017 05:53:47 PM CST
- * Last Modified : Sun 05 Feb 2017 07:57:27 PM CST
+ * Last Modified : Sun 05 Feb 2017 11:45:23 PM CST
  * Created By : SL Chung
 **************************************************************/
 #include<iostream>
@@ -16,9 +16,6 @@ bool outputJPG(string, int, Mat&);
 
 int main(int argc, char** argv)
 {
-    //create a Matrix size 10x20
-    //U means unsigned S means signed
-    
     Mat img1, img2;
     img1 = imread(argv[1], IMREAD_COLOR);
     img2 = imread(argv[1], CV_LOAD_IMAGE_GRAYSCALE);
