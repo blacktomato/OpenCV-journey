@@ -4,7 +4,7 @@ EXEC1 = Mat
 EXEC2 = basic_structure
 CVLIB = `pkg-config opencv --cflags --libs`
 
-all: $(EXEC1) $(EXEC2) $(EXEC3)
+all: $(EXEC1) $(EXEC2)
 
 $(EXEC1): $(EXEC1).cpp
 	$(CC) $(CXXFLAGS) $+ -o $@ $(CVLIB) 
