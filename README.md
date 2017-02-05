@@ -13,7 +13,7 @@ Interested in photography and C++, I want to record the process of my learning O
 
 <h3>Learning Path:</h3>
 1. Structure\_Format
-2. IO 
+2. Basic\_Image\_Operation 
 
 <h3>Reference:</h3>
 * [阿洲的程式教學][1]
