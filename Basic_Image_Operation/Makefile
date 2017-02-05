@@ -10,5 +10,5 @@ $(EXEC1): $(EXEC1).cpp
 
 .PHONY:clean
 clean:
-	rm -rf *.o $(EXEC1)
+	rm -rf *.o $(EXEC1) *.jpg
 
