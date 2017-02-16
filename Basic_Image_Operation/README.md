@@ -2,6 +2,7 @@
 
 <h3>File</h3>
 * [IO.cpp](#io)
+* [Add.cpp](#add)
 
 
 * * *
@@ -67,3 +68,38 @@
     
     In the IO.cpp, we can produce JPEG images with different compression quality.
 
+<h4 id = "add">Add.cpp</h4>
+
+First, because I want to spread the window, instead of them being squeezed together,
+I use following code to get the resolution of the screen. When compiling the .cpp file, I need to add the library link `-lX11`.
+(In the `./Makefile`)
+
+    #include<X11/Xlib.h>
+
+    //To have screen height and width
+    Display* d = XOpenDisplay(NULL);
+    Screen*  s = DefaultScreenOfDisplay(d);
+
+There are two function for adding ,`add()` and `addWeighted()`, and both of them could **only** deal with two images **having the same size**.
+
+* `alpha` (`beta`): weight of src1 (src2)
+* `gamma`: scalar added to each sum
+
+
+    //void add(InputArray src1, InputArray src2, OutputArray dst, InputArray mask=noArray(), int dtype=-1)
+    //void addWeighted(InputArray src1, double alpha, InputArray src2, double beta, double gamma, OutputArray dst, int dtype=-1)
+
+    add(img1, img2, img3);
+    
+    add(img1, Scalar(20), img4);
+    //same as img4 = img1 + 20;
+
+    addWeighted(img1, 0.5, img2, 0.5, 0, img5);
+
+If we want to add a smaller image to the bigger one, we should use the **ROI** (Region of Interest) technique.
+
+    //with different sizes
+    Mat imgROI = img1(Rect(position_w, position_h, img2.cols, img2.rows));
+    addWeighted(imgROI, 0.5, img2, 0.5, 0, imgROI);
+    
+* P.S. First two parameter`Rect()` is the coordinates of the up-left point.
