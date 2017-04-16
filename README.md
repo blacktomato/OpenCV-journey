@@ -5,6 +5,7 @@ A journey toward OpenCV
 Interested in photography and C++, I want to record the process of my learning OpenCV.
 
 <h3>Environment:</h3>
+
 * archlinux
 * g++ (GCC) 6.2.1 20160830
 * opencv 3.1.0
@@ -12,10 +13,12 @@ Interested in photography and C++, I want to record the process of my learning O
 * * *
 
 <h3>Learning Path:</h3>
+
 1. Structure\_Format
 2. Basic\_Image\_Operation 
 
 <h3>Reference:</h3>
+
 * [阿洲的程式教學][1]
 * [OpenCV documentation Tutorials][2]
 
