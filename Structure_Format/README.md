@@ -1,6 +1,7 @@
 <h1>Structure and Format</h1>
 
 <h3>File</h3>
+
 * [Makefile](#makefile)
 * [Mat.cpp](#mat)
 * [basic\_structure.cpp](#basic)
@@ -9,7 +10,6 @@
     * [Rect](#rect)
     * [rRect](#rrect)
     * [Scalar](#scalar)
-
 
 * * *
 
