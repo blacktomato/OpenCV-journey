@@ -2,7 +2,7 @@
  * File Name : Add.cpp
  * Purpose : Adding Image together
  * Creation Date : Wed 15 Feb 2017 03:54:00 PM CST
- * Last Modified : Wed 15 Feb 2017 11:51:53 PM CST
+ * Last Modified : Thu 29 Jun 2017 01:30:03 AM CST
  * Created By : SL Chung
 **************************************************************/
 #include<iostream>
@@ -10,7 +10,6 @@
 #include<time.h>
 #include<opencv2/opencv.hpp>
 #include<X11/Xlib.h>
-
 
 using namespace std;
 using namespace cv;
@@ -26,10 +25,14 @@ double col = 0, row = 0;
 int main(int argc, char** argv)
 {
     Mat img1, img2, img3, img4, img5;
+    if (argc != 3)
+    {
+        cerr << "Error: need two images as the inputs..." << endl;
+        return 0;
+    }
     img1 = imread(argv[1], IMREAD_COLOR);
     img2 = imread(argv[2], CV_LOAD_IMAGE_UNCHANGED);
 	
-	// if size of img1 and img2 are different program will crush.(core dumped)
 	if (img1.size() == img2.size())
 	{
 		add(img1, img2, img3);
@@ -43,7 +46,7 @@ int main(int argc, char** argv)
 		show_image("img1+img2", img3);
 		show_image("img1+20", img4);
 		show_image("(img1+img2)/2", img5);
-	}
+	} 
 	else 
 	{
 		cerr << endl << "The size of two images are not the same:" << endl;
@@ -60,7 +63,7 @@ int main(int argc, char** argv)
 		addWeighted(imgROI, 0.5, img2, 0.5, 0, imgROI);
 		show_image("img1", img1);
 		show_image("img2", img2);
-	}
+	} 
     
     while(true)
         if(waitKey(10) == 27) break; //ESC
