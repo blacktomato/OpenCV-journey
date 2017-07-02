@@ -7,8 +7,8 @@ Interested in photography and C++, I want to record the process of my learning O
 <h3>Environment:</h3>
 
 * archlinux
-* g++ (GCC) 6.2.1 20160830
-* opencv 3.1.0
+* g++ (GCC) 7.1.1 20170621
+* opencv 3.2.0
 
 * * *
 
