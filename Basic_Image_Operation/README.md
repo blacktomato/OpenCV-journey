@@ -4,6 +4,7 @@
 
 * [IO.cpp](#io)
 * [Add.cpp](#add)
+* [at\_ptr.cpp](#atptr)
 
 
 * * *
@@ -71,7 +72,7 @@
 
 <h4 id = "add">Add.cpp</h4>
 
-First, because I want to spread the window, instead of them being squeezed together,
+First, because I want to spread the image window, instead of them being squeezed together,
 I use following code to get the resolution of the screen. When compiling the .cpp file, I need to add the library link `-lX11`.
 (In the `./Makefile`)
 
@@ -104,3 +105,36 @@ If we want to add a smaller image to the bigger one, we should use the **ROI** (
     addWeighted(imgROI, 0.5, img2, 0.5, 0, imgROI);
     
 * P.S. First two parameter`Rect()` is the coordinates of the up-left point.
+
+<h4 id = "atptr">at_ptr.cpp</h4>
+
+In the opencv, we can use the function `at()`, `ptr()`, and `iterator` to access the element in the `Mat`.
+First, `at()` can random-access the pixel in the `Mat`,
+but it is not suitable for scanning through the whole `Mat` for efficiency problem. 
+Ex: **Mat::at\<uchar\>(row, col)**
+
+	for(int height=0; height < img2.rows; height++){
+		for(int width=0; width < widthLimit; width++)
+			img2.at<uchar>(height, width) += 20;
+	}
+
+On the other hand, `ptr()` returns the point which points the **first the element of the specific row**.
+The operating speed is faster than the `at()`.
+Ex: **Mat::ptr\<uchar\>(row)**
+    
+	for(int height=0; height < img3.rows; height++){
+		uchar *data = img3.ptr<uchar>(height);
+		for(int width=0; width < widthLimit ; width++)
+			data[width] += 20;
+	}
+
+Opencv provides `iterator` for Mat, and there are also `begin()` and `end()`.
+Ex: **Mat_<Vec3b>::iterator itend = img.end<Vec3b>()**
+
+    Mat_<Vec3b>::iterator it = img4.begin<Vec3b>();
+    Mat_<Vec3b>::iterator itend = img4.end<Vec3b>();
+    for(;it!=itend;it++){
+        (*it)[0] = (*it)[0] + 20;
+        (*it)[1] = (*it)[1] + 20;
+        (*it)[2] = (*it)[2] + 20;
+    }
